@@ -1,0 +1,105 @@
+import turtle
+t=turtle.Turtle()
+
+#draw an S of specific size
+def writeS(t,Sheight,Swidth):
+    t.right(180)
+    t.fd(Swidth*.5)
+    t.circle(Swidth*.5,90)
+    t.fd(Sheight*.4)
+    t.circle(Swidth*.5,90)
+    t.circle(-Swidth*.5,90)
+    t.fd(Sheight*.4)
+    t.circle(-Swidth*.5,90)
+    t.fd(Swidth*.5)
+#writeS(t,200,40)
+
+#draw a P of specific size
+def writeP(t,Pheight,Pwidth):
+    t.right(90)
+    t.fd(Pheight)
+    t.right(180)
+    t.fd(Pheight)
+    t.right(90)
+    t.circle(-Pwidth*.65,180)
+#writeP(t,200,60)
+
+#draw a Z of a specific size
+def writeZ(t,Zheight,Zwidth):
+    t.fd(Zwidth*1.2)
+    t.right(120)
+    t.fd(Zheight*1.15)
+    t.left(120)
+    t.fd(Zwidth*1.2)
+#writeZ(t,200,130)
+
+#draw a J of a 
+def writeJ(t,Jheight,Jwidth):
+    t.fd(Jwidth)
+    t.right(90)
+    t.fd(.75*Jheight)
+    t.circle(-.25*Jheight,180)
+#writeJ(t,200,80)
+
+
+
+def drawSP(aTurtle,letterheight,letterwidth,spacing):
+    t.pu()
+    t.seth(180)
+    t.fd(3*spacing)
+    t.seth(90)
+    t.fd(letterheight)
+    t.seth(0)
+    t.pd()
+    writeS(t,letterheight*.6,letterwidth*.6)
+    t.pu()
+    t.seth(90)
+    t.fd(letterheight)
+    t.seth(0)
+    t.fd(spacing)
+    t.pd()
+    writeP(t,letterheight,letterwidth)
+
+
+#drawSP(t,120,50,60)
+
+def drawZJ(aTurtle,letterheight,letterwidth,spacing):
+    t.pu()
+    t.seth(90)
+    t.fd(letterheight)
+    t.pd()
+    t.seth(0)
+    writeZ(t,letterheight,letterwidth)
+    t.pu()
+    t.seth(0)
+    t.fd(spacing)
+    t.seth(90)
+    t.fd(letterheight)
+    t.seth(0)
+    t.pd()
+    writeJ(t,letterheight,letterwidth)
+#drawZJ(t,120,50,50)
+
+
+
+def go():
+    t.pu()
+    t.goto(-300,300)
+    drawSP(t,100,30,40)
+    t.pu()
+    t.goto(-300,150)
+    drawSP(t,80,24,32)
+    t.pu()
+    t.goto(-300,0)
+    drawSP(t,60,20,25)
+    t.pu()
+    t.goto(-100,300)
+    drawZJ(t,100,30,40)
+    t.pu()
+    t.goto(-100,150)
+    drawZJ(t,80,24,32)
+    t.pu()
+    t.goto(-100,0)
+    drawZJ(t,60,20,25)
+    
+go()
